@@ -1,0 +1,21 @@
+MIGRATION & TRANSFER 
+
+--> AWS SERVER MIGRATION SERVICE 
+
+
+https://www.vembu.com/blog/aws-server-migration-service/
+
+
+step 
+
+1.healthy control 
+
+2.
+
+3.aws programming acces control 
+
+4.data central local /network configurtion sms 
+
+5.infor to using users 
+
+https://labs.hol.vmware.com/HOL/catalogs/catalog/1936

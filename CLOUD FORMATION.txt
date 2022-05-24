@@ -1,0 +1,108 @@
+$$$$ AWS CLOUD FORMATION   %%%% ( very imp topics ) 
+
+
+---> what Cloud Formation :  
+
+CloudFormation allows us to create a "stack" of "resources" in one step. 
+Resources are the things we create (EC2 Instances, VPCs, subnets, etc.), a set of these is called a stack.
+
+1.Templates - A JSON or YAML formatted text file used for building AWS resources.
+2.Stack - It is a single unit of resources.
+3.Change sets - It allows checking how any change to a resource might impact the running resources.
+4.Stacks can be created using the AWS CloudFormation console and AWS Command Line Interface (CLI).
+
+Cloud Formation : 
+
+Infractructure as a code (IAAC) 
+
+
+2 types  clould Formation templates :
+
+1.JSON -->Java Script Object Notation
+ 
+2.YAML---> Ain't (YET)  Markup Language 
+
+
+STACK: 
+
+Change Sets: 
+
+Stack upadates :
+
+1.Direct updates & 
+2.Creating and executing chagne Sets: 
+
+Stacksets : 
+
+Nested Stacksets 
+
+1.VPC Stack -->
+
+2.EC2 Stack -->
+
+VPC Stack + EC2 Stack 
+
+
+js s/w  -->vs code/software /Atom software --install both s/w in your system 
+
+
+cloud Formation 2 tpyes 
+
+1.Templete Designer-->canvs model 
+
+2. own  code method 
+
+
+
+---> Creating a stack on the AWS CloudFormation console
+
+Step 1: Starting the Create Stack
+
+	1.Create a new stack by using one of the following options:
+
+	A.Choose Create Stack. This is the only option if you have a currently running stack.
+
+	B.Choose Create Stack on the Stacks page. This option is visible only if you have no running stacks
+
+Step 2: Selecting a stack template
+
+	1.Template is ready 
+	
+		a.Amazon S3 URL
+
+		b.Specify a URL to a template in an S3 bucket.
+
+		c.Enter the URL in the Amazon S3 URL field.
+
+		Note : d.Upload a template file( local system ) 
+
+	2.Use a sample template
+
+		A.templates provided by CloudFormation to get you started
+
+	3.Create template in Designer
+
+		A.To accept your settings, choose Next, and proceed with specifying the stack name and parameters.
+	
+Step 3: Specifying stack name and parameters
+
+	After selecting a stack template, specify the stack name and values for the parameters that were defined in the template.
+
+Step 4: Setting AWS CloudFormation stack options
+
+	1.Tags
+	2.Permissions
+	3.Stack failure options ( 1.Roll back all stack resource ) 
+	4.choose Next Step to proceed with reviewing your stack.
+---> Example 
+
+Example: CloudFormation template for creating EC2 instance( yaml ) 
+EC2Instance:
+	Type: AWS::EC2::Instance Properties:
+	ImageId: 1234xyz KeyName: aws-keypair InstanceType: t2.micro SecurityGroups:
+	- !Ref EC2SecurityGroup BlockDeviceMappings:
+	- DeviceName: /dev/sda1 Ebs:
+	VolumeSize: 50
+
+
+

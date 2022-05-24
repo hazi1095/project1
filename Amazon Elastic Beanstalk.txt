@@ -1,0 +1,130 @@
+
+&&&&&&&& Amazon Elastic Beanstalk &&&&&&
+
+
+---> What is AWS Elastic Beanstalk
+
+1.Elastic Beanstalk, you can quickly deploy and manage applications in the AWS Cloud 
+without having to learn about the infrastructure that runs those applications.
+
+2.Elastic Beanstalk supports applications developed in Go, Java, .NET, Node.js, PHP, Python, and Ruby.
+
+3.Elastic Beanstalk automatically handles the details of capacity provisioning, 
+load balancing,scaling, and application health monitoring for your applications.
+
+4.Elastic Beanstalk supports Docker containers.
+
+5.Elastic Beanstalk Workflow
+
+
+--> Work Flow 
+
+Create Application --> Upload--> Launch Enviroment --> Manage Enviorment 
+ 
+--> Elastic Beanstalk Concepts
+
+1.Appllication--->Set of Program  run to end user 
+
+2.Application Version ----> control version 
+
+3.Environment--->different Version /each version called as Enviroment 
+
+4.Environment Tier-->
+   
+   a.Webserver Tier-->
+
+    b.Worker Tier-->  very imp tier  
+
+5.Health --> montioring of health 
+         
+health Status:
+
+Gery --> Peding status 
+
+Green--> full condition 
+
+Yellow-->one/Two  checks failled 
+
+Red -->3 or more checks failed 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&&&&
+
+******WEBSERVER ENVIRONMENT*** 
+
+1.Elastic Beanstalk Enviroment --->
+
+2.ELB--> 
+
+3.ASG-->
+
+4.EC2 INSTANCES--->
+
+5.SG-->
+
+What is worker ? 
+
+Handing background tasks/resoures/time oprations
+
+--> Create an application and an environment
+
+Step 1: Create
+
+	1.choose a platform, and then choose Create application
+	2.Creates a new application version named Sample Application. 
+	3.Deploys the code for the example application to the GettingStartedApp-env environment.
+Step 2: Explore
+
+	1.choose Environments, and then choose the name of your environment from the list.
+	2.Beanstalk creates your AWS resources and launches your application
+
+Step 3: Deploy a new version
+
+	1.The application version that you started this tutorial with is called Sample Application.
+
+	2.Download the sample application that matches your environment's platform. Use one of the following applications.
+
+	Docker – docker.zip
+
+	Multicontainer Docker – docker-multicontainer-v2.zip
+
+	Preconfigured Docker (Glassfish) – docker-glassfish-v1.zip
+
+	Go – go.zip
+
+	Corretto – corretto.zip
+
+	Tomcat – tomcat.zip
+
+	.NET Core on Linux – dotnet-core-linux.zip
+
+	.NET – dotnet-asp-v1.zip
+
+	Node.js – nodejs.zip
+
+	PHP – php.zip
+
+	Python – python.zip
+
+	Ruby – ruby.zip
+	
+	3.choose Environments
+	
+	4.Choose file, and then upload the sample application source bundle that you downloaded.
+
+	5.Choose Deploy.
+	
+Step 4: Configure
+	 choose Configuration.
+
+	1.In the Capacity configuration category, choose Edit.
+
+	2.In the Auto Scaling group section, change Environment type to Load balanced.
+
+	3.In the Instances row, change Max to 4, and then change Min to 2.
+
+	4.Choose Apply.
+
+Step 5: Clean up
+
+
+  

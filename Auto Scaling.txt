@@ -1,0 +1,161 @@
+
+
+			%%%%%%%%%%%% Auto Scaling     %%%%%%%%%%%
+
+What is Aws Auto Scaling ? 
+
+-->Aws auto scaling keeps on Monitoring you application & Automatically
+adjust the capacity required for steady & predicatable Performance
+
+-->By using auto scaling its very easy to set up the scaling of the application 
+automatically with no manual intervention 
+
+-->it allows you to bulid a simply yet intutive ul the allows you to create scaling 
+plans for resources like EC2 Instances,Amazon EC2 tasks,Amazon 
+Dynamo DB,Amazon Aurora Read Replicas.
+
+-->Auto Scaling balances Performace Optimization and cost
+
+-->IT means you will be having the right amount resource at the rigth time.
+
+
+-- >  Basics of Aws auto scaling : 
+
+	1.Automatically Maintain Performance.
+
+	2.Make Smart Scaling Decision 
+
+	3.Pay only for what you need 
+
+	4.Aws auto scaling allows you to bulid scaling plan based on change in demand.
+
+	5.It will automatically add or remove the instances.
+
+	6.Aws Auto scaling is free to use.
+
+	7.You will be charged for the resources.
+
+**Benefits & features of Aws Auto Scaling 
+
+	1.Set up Quick Scaling .
+
+	2.pay as you go. 
+
+	3.Automatically maintain performance.
+	
+	4.Smart Scaling Decisions.
+
+--> AutoScaling has two components: 
+
+	1.Launch Configurations -> Launch Configurations hold the instructions for the creation of new instances. The instructions describe what type of instance AutoScaling
+
+	2.Auto Scaling Groups  -> Scaling Groups, on the other hand, manage the scaling rules and logic, which are defined in policies. Those could be based on schedule or CloudWatch metrics.
+
+
+Terminologies related to AWS Autoscaling Groups:
+
+--> What is Autoscaling Groups 
+
+Auto-scaling Group (ASG) is for helping out logical servers, and it increases or decreases according to the requirements.
+
+--> Launch Configuration & Launch Template: 
+
+	A launch configuration and template defines an instance configuration template that an Auto Scaling group uses to launch EC2 instances
+
+
+Launch Template: 
+
+	We recommend that you use launch templates to make sure that you're getting the latest features from Amazon EC2.
+
+--> Snapshots vs. AMI  
+
+Snapshots :
+
+	 AWS provides a data storage service along with the Amazon EC2 instance, namely, Elastic Block Store (EBS). 
+
+ AMI : 
+	EBS has Snapshots for data storage, whereas AMI is primarily associated with AWS EC2
+
+--> AWS Auto Scaling work
+
+	Configure a single unified scaling policy per application source.
+	Choose the service that you want to scale up or down.
+	Select what to optimize. Based on a schedule, scale your application in response to predictable load changes. 
+	Keep tracing the scaling load and maintain a steady count of instances.
+
+--> Types of Scaling Plans
+
+	1.Manual scaling - This scaling helps in managing the task of building or terminating EC2 instances on its own.
+
+	2.Scaling based on a schedule - Developers can predict future traffic and can schedule the time for executing AWS Auto Scaling.
+	
+	3.Scaling based on demand - This scaling lets developers define required scaling in response to client demand.
+
+	4.Maintaining the current instance-level - Developers configure an Auto Scaling group for managing running instances.
+
+
+--> How to configure auto-scaling group in AWS step by step 
+
+	Step 1.Create a launch template
+	Step 2.Create an auto-scaling group from the launch template
+	Step 3.Add Elastic Load Balancers (Optional)
+	Step 4.Configure Scaling Policies (Optional)
+	Step 5.Test auto-scaling group
+	Step 6.Delete auto-scaling group
+
+ --> To create an Auto Scaling group using a launch configuration
+
+
+	1.Choose Create an Auto Scaling group.
+
+	2.On the Choose launch template or configuration page, for Auto Scaling group name, enter a name for your Auto Scaling group.
+
+	3.To choose a launch configuration, do the following:
+
+	  	 A.For Launch template, choose Switch to launch configuration.
+	   	 B.For Launch configuration, choose an existing launch configuration.
+	  	 C.Verify that your launch configuration supports all of the options that you are planning to use, and then choose Next..
+
+	4. The Auto Scaling group must be created in the same VPC as the security group you specified in your launch configuration.
+
+	5. choose one or more subnets in the specified VPC. Use subnets in multiple Availability Zones for high availability.
+
+	6.Configure advanced options page, configure the following options, and then choose Next:
+
+		A.To create a new load balancer, follow the procedure in Configure an Application Load Balancer or Network Load Balancer using the Amazon EC2 Auto Scaling console.
+		B.To enable your Elastic Load Balancing (ELB) health checks, for Health checks, choose ELB under Health check type. 
+		C.The default is 300 seconds. For more information, see Health check grace period.
+		D.Additional settings, Monitoring, choose whether to enable CloudWatch group metrics collection
+		
+	7. Configure group size and scaling policies page, configure the following options, and then choose Next:--> (OPTIONAL)
+
+		A.you must update the values of Minimum capacity or Maximum capacity. For more information, see Setting capacity limits on your Auto Scaling group.
+
+	8.To receive notifications, for Add notification configure the notification, and then choose Next. For more information, see Getting Amazon SNS notifications when your Auto Scaling group scales.---(Optional)
+
+	9.choose Add tag, provide a tag key and value for each tag, and then choose Next. For more information, see Tagging Auto Scaling groups and instances.---(Optional)
+	
+	10. review and click auto scalling group 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+ 

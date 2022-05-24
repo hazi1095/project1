@@ -1,0 +1,142 @@
+ 		
+							###### AWS DIRECTORY SERVICE #########
+
+
+
+AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft Active Directory
+(AD), enables your directory-aware workloads and AWS resources to use managed Active Directory (AD) in AWS.
+
+ 
+Step 1 -----> Create your AWS Managed Microsoft AD directory in AWS
+
+1.On the Select directory type page, choose AWS Managed Microsoft AD, and then choose Next.
+
+2.On the Enter directory information page, provide the following information, and then choose Next.
+
+3.For Edition, select either Standard Edition or Enterprise Edition. For more information about editions, see AWS Directory Service for Microsoft Active Directory.
+
+	For Directory DNS name, type corp.example.com.
+
+	For Directory NetBIOS name, type corp.
+
+	For Directory description, type AWS DS Managed.
+
+	For Admin password, type the password you want to use for this account and type the password again in Confirm password. This Admin account is automatically created during the directory creation process. The password cannot include the word admin. The directory administrator password is case sensitive and must be between 8 and 64 characters in length, inclusive. 
+
+4.On the Choose VPC and subnets page, provide the following information, and then choose Next.
+
+	For VPC, choose the option that begins with AWS-DS-VPC01 and ends with (10.0.0.0/16).
+
+	For Subnets, choose the 10.0.0.0/24 and 10.0.1.0/24 public subnets.
+
+5.On the Review & create page, review the directory information and make any necessary changes
+. 
+When the information is correct, choose Create directory.
+
+Creating the directory takes 20 to 40 minutes. Once created, the Status value changes to Active.
+
+Step 2 ---> To create an EC2 instance 
+
+On the Step 1 page, next to Microsoft Windows Server 2019 Base - ami-xxxxxxxxxxxxxxxxx choose Select.
+
+On the Step 2 page, select t3.micro (note, you can choose a larger instance type), and then choose Next: Configure Instance Details.
+
+On the Step 3 page, do the following:
+
+For Subnet choose Public subnet 1, which should be preconfigured for your preferred Availability Zone (for example, subnet-xxxxxxxxxxxxxxxxx | AWS-DS-VPC01-Subnet01 | us-west-2a).
+
+For Auto-assign Public IP, choose Enable (if the subnet setting is not set to enable by default).
+
+Choose Next: Add Storage.
+
+On the Step 4 : leave the default settings, and then choose Next: Add Tags.
+
+On the Step 5 : choose Add Tag. 
+
+On the Step 6 : choose Select an existing security group, se Review and Launch to review your instance.
+
+On the Step 7 : review the page, and then choose Launch.
+
+On the Select an existing key pair or create a new key pair dialog box, do the following:
+
+Choose Choose an existing key pair.
+
+Under Select a key pair, choose AWS-DS-KP.
+
+Select the I acknowledge... check box.
+
+Choose Launch Instances.
+
+Step 3--> Install the Active Directory tools on your EC2 instance
+
+1.In the Connect To Your Instance dialog box, choose Get Password to retrieve your password if you haven’t already, and then choose Download Remote Desktop File.
+
+2.In the Windows Security dialog box, type your local administrator credentials for the Windows Server computer to log in (for example, administrator).
+
+3.From the Start menu, choose Server Manager.
+
+	 choose Add Roles and Features.
+
+	In the Add Roles and Features Wizard, choose Next.
+
+	On the Select installation type page, choose Role-based or feature-based installation, and then choose Next.
+
+	On the Select destination server page, make sure that the local server is selected, and then choose Next.
+
+	On the Select server roles page, choose Next.
+
+	On the Select features page, do the following:
+
+	Select the Group Policy Management check box.
+
+4.Expand Remote Server Administration Tools, and then expand Role Administration Tools.
+
+5.Select the AD DS and AD LDS Tools check box.
+
+6.Select the DNS Server Tools check box.
+
+7.Choose Next.
+
+8.On the Confirm installation selections page, review the information, and then choose Install. 
+
+9.When the feature installation is finished, the following new tools or snap-ins will be available in the Windows Administrative Tools folder in the Start menu.
+
+	Active Directory Administrative Center
+
+	Active Directory Domains and Trusts
+
+	Active Directory Module for Windows PowerShell
+
+	Active Directory Sites and Services
+
+	Active Directory Users and Computers
+
+	ADSI Edit
+
+	DNS
+
+	Group Policy Management
+
+***** To install the Active Directory tools on your EC2 instance (Windows PowerShell) (Optional)*****
+
+Start Windows PowerShell.
+
+Type the following command.
+
+Install-WindowsFeature -Name GPMC,RSAT-AD-PowerShell,RSAT-AD-AdminCenter,RSAT-ADDS-Tools,RSAT-DNS-Server
+
+
+Step 4 ---> To verify that the test lab is operational
+
+1.Sign out of the EC2 instance where you were logged in as the local administrator.
+
+2.Back in the Amazon EC2 console, choose Instances in the navigation pane. Then select the instance that you created. Choose Connect.
+
+3.In the Connect To Your Instance dialog box, choose Download Remote Desktop File.
+
+4.In the Windows Security dialog box, type your administrator credentials for the CORP domain to log in (for example, corp\admin).
+
+5.Once you are logged in, in the Start menu, under Windows Administrative Tools, choose Active Directory Users and Computers.
+
+6. You should see corp.example.com displayed with all the default OUs and accounts associated with a new domain. Under Domain Controllers, notice the names of the domain controllers that were automatically created when you created your AWS Managed Microsoft AD back 
+
